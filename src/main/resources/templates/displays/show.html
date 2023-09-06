@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Монитор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${display.getId()}"></p>
+<p th:text="${display.getName()}"></p>
+<p th:text="${display.getCost()}"></p>
+<p th:text="${display.getFirm()}"></p>
+<a th:href="@{/displays/{id}/edit(id = ${display.getId()})}">edit</a>
+
+<form th:method="DELETE" th:action="@{/displays/{id}(id = ${display.getId()})}">
+    <input type="submit" value="Удалить">
+</form>
+</body>
+</html>

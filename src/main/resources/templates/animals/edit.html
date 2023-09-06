@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование животного</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/animals/{id}(id=${animal.getId()})}" th:object="${animal}">
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="type">Вид</label>
+    <input type="text" th:field="*{type}" id="type">
+    <label for="age">Возраст</label>
+    <input type="text" th:field="*{age}" id="age">
+    <input type="submit" value="Изменить">
+</form>
+</body>
+</html>
